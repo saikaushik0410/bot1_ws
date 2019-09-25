@@ -1,0 +1,8 @@
+prefix=/home/pi/bot1_ws/devel
+
+Name: teleop_command
+Description: Description of teleop_command
+Version: 1.2.4
+Cflags: 
+Libs: -L/home/pi/bot1_ws/devel/lib 
+Requires: 

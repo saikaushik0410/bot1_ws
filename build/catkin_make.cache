@@ -1,0 +1,2 @@
+edukit_bot:odom:teleop_command:ultra_scan
+-DCATKIN_DEVEL_PREFIX=/home/pi/bot1_ws/devel -DCMAKE_INSTALL_PREFIX=/home/pi/bot1_ws/install -G Unix Makefiles

@@ -1,0 +1,7 @@
+<launch>
+	
+	<node pkg="odom" type="encoder.py" name="encoder1"/>
+	
+	<node pkg="odom" type="odom.py" name="odom1"/>
+
+</launch>
