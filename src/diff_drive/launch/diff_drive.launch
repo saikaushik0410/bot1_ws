@@ -6,5 +6,4 @@
 	<param name="~timeout" value= "2"/>
 		
 	<node pkg="rqt_graph" type="rqt_graph" name="rqt_graph"/>
-	
 </launch>
