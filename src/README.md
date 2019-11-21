@@ -9,6 +9,5 @@
 ### drive_node
 
 #### Subscribed topics
-
 `/bot_drive_controller/cmd_vel`  **(geometry_msgs/Twist)**  
 Sends the twist messages for the bot to move.
