@@ -6,10 +6,12 @@
 4. diff_drive
 
 ## edukit_bot  
-### Nodes
-  `driver_node` - The node Subscribing to the Twist values and sending signals to the motors.
-  
-### Topics
-  `/bot_drive_controller/cmd_vel`- The twist message is passed around through the 'cmd_vel' topic.
+### drive_node
+
+#### Subscribed topics
+`/bot_drive_controller/cmd_vel`**(geometry_msgs/Twist)**
+Sends the twist messages for the bot to move.
+
+
   
   
