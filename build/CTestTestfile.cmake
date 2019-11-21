@@ -7,4 +7,5 @@
 subdirs("teleop_command")
 subdirs("edukit_bot")
 subdirs("odom")
+subdirs("diff_drive")
 subdirs("ultra_scan")

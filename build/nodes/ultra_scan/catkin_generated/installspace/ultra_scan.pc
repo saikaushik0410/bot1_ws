@@ -1,0 +1,8 @@
+prefix=/home/pi/bot1_ws/install
+
+Name: ultra_scan
+Description: Description of ultra_scan
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/pi/bot1_ws/install/lib 
+Requires: 

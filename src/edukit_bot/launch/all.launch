@@ -1,0 +1,10 @@
+<launch>
+
+	<node pkg="edukit_bot" type="driver_node.py" name="drive" />
+
+	<node pkg="teleop_command" type="teleop_command.py" name="tele" />
+
+	<node pkg="ultra_scan" type="ultra.py" name="ultra" />
+
+
+</launch>

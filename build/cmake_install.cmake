@@ -133,6 +133,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/pi/bot1_ws/build/teleop_command/cmake_install.cmake")
   include("/home/pi/bot1_ws/build/edukit_bot/cmake_install.cmake")
   include("/home/pi/bot1_ws/build/odom/cmake_install.cmake")
+  include("/home/pi/bot1_ws/build/diff_drive/cmake_install.cmake")
   include("/home/pi/bot1_ws/build/ultra_scan/cmake_install.cmake")
 
 endif()
