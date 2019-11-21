@@ -1,0 +1,10 @@
+<launch>
+	<node pkg="diff_drive" type="diff_drive_controller" name="diff_drive_control">
+	<param name="~ticks_per_meter" value="8000"/>
+	<param name="~wheel_seperation" value="10"/>
+	<param name="~max_motor_speed" value="10"/>
+	<param name="~timeout" value= "2"/>
+		
+	<node pkg="rqt_graph" type="rqt_graph" name="rqt_graph"/>
+	
+</launch>
