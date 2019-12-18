@@ -49,25 +49,23 @@ class Driver:
         self.rate = rospy.get_param('~rate', 10)
         self.max_speed = rospy.get_param('~max_speed',0.5)
         self.wheel_base = rospy.get_param('~wheel_base',0.09)
+	self.wheel_radius=rospy.get_param('-wheel_radius',0.03)
 
         self.left_motor = Motor(10,9)
         self.right_motor = Motor(8,7)
-        self.left_speed_percent = 0
-        self.right_speed_percent = 0
+        self.lwheel_vel = 0
+        self.rwheel_vel = 0
 
         rospy.Subscriber('bot_drive_controller/cmd_vel',Twist,self.velocity_received_callback)
-
+	self.lwheel_vel_pub=rospy.Publisher('lwheel_vel',Float32,queue_size=10)
+	self.rwheel_vel_pub=rospy.Publisher('rwheel_vel',Float32,queue_size=10)
     def velocity_received_callback(self,msg):
         self.last_received = rospy.get_time()
 
-        linear = msg.linear.x
-        angular= msg.angular.z
+        self.lwheel_vel = msg.linear.x
+        self.rwheel_vel = msg.angular.z
 
-        left_speed = linear - angular*self.wheel_base/2
-        right_speed = linear + angular*self.wheel_base/2
-
-        self.left_speed_percent = (100*left_speed/self.max_speed)
-        self.right_speed_percent = (100 * right_speed / self.max_speed)
+        
 
     def run(self):
 	rate = rospy.Rate(self.rate)
@@ -75,13 +73,16 @@ class Driver:
         while not rospy.is_shutdown():
             delay = rospy.get_time() - self.last_received
             if delay < self.timeout:
-                self.left_motor.move(self.left_speed_percent)
-                self.right_motor.move(self.right_speed_percent)
-            else:
-                self.left_motor.move(0)
-                self.right_motor.move(0)
-
+                self.change();
             rate.sleep()
+	rospy.spin();	
+    def change(self):
+	vr= (2*self.lwheel_vel + self.rwheel_vel*self.wheel_base)/(2)
+	vl= (2*self.lwheel_vel - self.rwheel_vel*self.wheel_base)/(2)
+	
+	self.rwheel_vel_pub.publish(vr)
+	self.lwheel_vel_pub.publish(vl)
+	
 
 def main():
     driver = Driver()
